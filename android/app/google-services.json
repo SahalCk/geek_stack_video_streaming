@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "222875704066",
+    "project_id": "geek-stack-e1a48",
+    "storage_bucket": "geek-stack-e1a48.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:222875704066:android:204cf44089e3cad942401b",
+        "android_client_info": {
+          "package_name": "com.example.geekstack"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "222875704066-k7q382ocr8fdqfq0gs55rfkf5ld78qem.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCXPilF31aPczBqxEdL1UE6M6qLxIhf6AA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "222875704066-k7q382ocr8fdqfq0gs55rfkf5ld78qem.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
