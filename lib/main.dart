@@ -1,5 +1,8 @@
+import 'dart:io';
+
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_windowmanager/flutter_windowmanager.dart';
 import 'package:geekstack/utils/colors.dart';
 import 'package:geekstack/view_models/login_screen_view_model.dart';
 import 'package:geekstack/view_models/splash_screen_view_model.dart';
@@ -15,6 +18,11 @@ void main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
   runApp(const GeekStackApp());
+  WidgetsBinding.instance.addPostFrameCallback((timeStamp) async {
+    if (Platform.isAndroid) {
+      await FlutterWindowManager.addFlags(FlutterWindowManager.FLAG_SECURE);
+    }
+  });
 }
 
 class GeekStackApp extends StatelessWidget {

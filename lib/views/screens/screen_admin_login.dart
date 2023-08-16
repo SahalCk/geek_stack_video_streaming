@@ -7,6 +7,7 @@ import 'package:geekstack/utils/sized_boxes.dart';
 import 'package:geekstack/utils/text_styles.dart';
 import 'package:geekstack/view_models/login_screen_view_model.dart';
 import 'package:geekstack/views/widgets/geek_stack_button.dart';
+import 'package:geekstack/views/widgets/geek_stack_signin_with_google_button.dart';
 import 'package:geekstack/views/widgets/geek_stack_text_form_field.dart';
 import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
@@ -50,7 +51,7 @@ class AdminLoginScreen extends StatelessWidget {
                         hint: 'Enter Password',
                         prefixIcon: const Icon(Icons.lock, size: 25),
                         passwordController: passwordController),
-                    sizedBoxHeight140,
+                    sizedBoxHeight70,
                     GeekStackButton(
                         function: () {
                           if (_key.currentState!.validate()) {
@@ -70,7 +71,9 @@ class AdminLoginScreen extends StatelessWidget {
                                     passwordController.text);
                           }
                         },
-                        text: 'Login')
+                        text: 'Login'),
+                    sizedBoxHeight20,
+                    const SignInWithGoogleButton()
                   ],
                 ),
               ),

@@ -45,6 +45,8 @@ dependencies:
   cloud_firestore: ^4.8.4
   fc_native_video_thumbnail: ^0.5.0
   better_player: ^0.0.83
+  google_sign_in: ^6.1.4
+  flutter_windowmanager: ^0.2.0
 
 dev_dependencies:
   flutter_test:

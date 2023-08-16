@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:geekstack/views/screens/screen_home.dart';
 import 'package:geekstack/views/widgets/geek_stack_snack_bars.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 class LoginScreenViewModel extends ChangeNotifier {
   bool obscureValue = true;
@@ -38,6 +39,39 @@ class LoginScreenViewModel extends ChangeNotifier {
         Navigator.of(context).pop();
         errorSnackBar(context, e.toString());
       }
+    }
+  }
+
+  Future<void> googleSigninButtonPressed(BuildContext context) async {
+    UserCredential? userCredential = await loginWithGoogle(context);
+    Navigator.of(context).pop();
+    if (userCredential != null) {
+      Navigator.of(context).pushReplacement(
+          MaterialPageRoute(builder: (context) => const HomeScreen()));
+    } else {
+      errorSnackBar(context, 'Something went wrong');
+    }
+  }
+
+  Future<UserCredential?> loginWithGoogle(BuildContext context) async {
+    try {
+      final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+
+      // Obtain the auth details from the request
+      final GoogleSignInAuthentication? googleAuth =
+          await googleUser?.authentication;
+
+      // Create a new credential
+      final credential = GoogleAuthProvider.credential(
+        accessToken: googleAuth?.accessToken,
+        idToken: googleAuth?.idToken,
+      );
+
+      // Once signed in, return the UserCredential
+      return await FirebaseAuth.instance.signInWithCredential(credential);
+    } catch (e) {
+      errorSnackBar(context, e.toString());
+      return null;
     }
   }
 }
