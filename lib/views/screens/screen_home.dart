@@ -5,6 +5,7 @@ import 'package:geekstack/utils/colors.dart';
 import 'package:geekstack/utils/sized_boxes.dart';
 import 'package:geekstack/view_models/upload_movie_view_model.dart';
 import 'package:geekstack/views/screens/screen_upload_video.dart';
+import 'package:geekstack/views/screens/screen_view_ppts.dart';
 import 'package:geekstack/views/screens/screen_watch_movie.dart';
 import 'package:geekstack/views/widgets/geek_stack_video_card.dart';
 import 'package:lottie/lottie.dart';
@@ -79,22 +80,84 @@ class HomeScreen extends StatelessWidget {
             ],
           ),
         )),
-        floatingActionButton: FloatingActionButton.extended(
-            backgroundColor: primaryColor,
-            onPressed: () {
-              Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) => const UploadVideoScreen()));
-            },
-            label: const Row(
-              children: [
-                Icon(Icons.add_rounded, color: Colors.red, size: 32),
-                Text('Add New Movie',
-                    style: TextStyle(
-                        color: Colors.red,
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold)),
-              ],
-            )),
+        floatingActionButton: Column(
+          mainAxisAlignment: MainAxisAlignment.end,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            SizedBox(
+              width: Adaptive.w(48),
+              child: FloatingActionButton.extended(
+                  backgroundColor: primaryColor,
+                  onPressed: () {
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => UploadedPPTsScreen()));
+                  },
+                  label: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      const Icon(Icons.video_file_rounded,
+                          color: Colors.red, size: 32),
+                      SizedBox(
+                        width: Adaptive.w(2),
+                      ),
+                      const Text('View Videos',
+                          style: TextStyle(
+                              color: Colors.red,
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold)),
+                    ],
+                  )),
+            ),
+            sizedBoxHeight10,
+            SizedBox(
+              width: Adaptive.w(48),
+              child: FloatingActionButton.extended(
+                  backgroundColor: primaryColor,
+                  onPressed: () {
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => UploadedPPTsScreen()));
+                  },
+                  label: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      const Icon(Icons.file_open_rounded,
+                          color: Colors.red, size: 32),
+                      SizedBox(
+                        width: Adaptive.w(2),
+                      ),
+                      const Text('View PPTs',
+                          style: TextStyle(
+                              color: Colors.red,
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold)),
+                    ],
+                  )),
+            ),
+            sizedBoxHeight10,
+            SizedBox(
+              width: Adaptive.w(48),
+              child: FloatingActionButton.extended(
+                  backgroundColor: primaryColor,
+                  onPressed: () {
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => const UploadVideoScreen()));
+                  },
+                  label: Row(
+                    children: [
+                      const Icon(Icons.movie, color: Colors.red, size: 32),
+                      SizedBox(
+                        width: Adaptive.w(2),
+                      ),
+                      const Text('Add New Movie',
+                          style: TextStyle(
+                              color: Colors.red,
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold)),
+                    ],
+                  )),
+            ),
+          ],
+        ),
       ),
     );
   }

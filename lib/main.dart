@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_windowmanager/flutter_windowmanager.dart';
@@ -7,6 +6,7 @@ import 'package:geekstack/utils/colors.dart';
 import 'package:geekstack/view_models/login_screen_view_model.dart';
 import 'package:geekstack/view_models/splash_screen_view_model.dart';
 import 'package:geekstack/view_models/upload_movie_view_model.dart';
+import 'package:geekstack/view_models/upload_ppt_view_model.dart';
 import 'package:geekstack/views/screens/screen_splash.dart';
 import 'package:provider/provider.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
@@ -14,6 +14,7 @@ import 'firebase_options.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
@@ -34,7 +35,10 @@ class GeekStackApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(create: (context) => SplashScreenViewModel()),
         ChangeNotifierProvider(create: (context) => LoginScreenViewModel()),
-        ChangeNotifierProvider(create: (context) => UploadVideoViewModel())
+        ChangeNotifierProvider(create: (context) => UploadVideoViewModel()),
+        ChangeNotifierProvider(
+          create: (context) => UploadPPTViewModel(),
+        )
       ],
       child: ResponsiveSizer(
         builder: (context, orientation, screenType) {

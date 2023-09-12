@@ -47,6 +47,11 @@ dependencies:
   better_player: ^0.0.83
   google_sign_in: ^6.1.4
   flutter_windowmanager: ^0.2.0
+  file_picker: ^5.2.10
+  open_file: ^3.3.2
+  path_provider: ^2.1.0
+  flutter_downloader: ^1.11.1
+  webview_flutter: ^4.2.4
 
 dev_dependencies:
   flutter_test:
